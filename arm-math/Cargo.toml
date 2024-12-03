@@ -1,0 +1,19 @@
+[package]
+name = "arm-math"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+arm-math-sys = { path = "../arm-math-sys" }
+fixed = { version = "1.28.0", features = ["num-traits"] }
+num-traits = { version = "0.2.19", default-features = false, features = [
+	"libm",
+] }
+
+[features]
+default = ["libm"]
+cm7 = ["arm-math-sys/cm7"]
+f32 = ["arm-math-sys/f32"]
+f64 = ["f32", "arm-math-sys/f64"]
+dsp = ["arm-math-sys/dsp"]
+libm = ["arm-math-sys/libm"]
