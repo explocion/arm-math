@@ -21,7 +21,7 @@ impl core::fmt::Display for Error {
 
 impl core::error::Error for Error {}
 
-pub trait Status {
+pub trait Status: Sealed {
     fn check(self) -> Result<(), Error>;
 }
 
